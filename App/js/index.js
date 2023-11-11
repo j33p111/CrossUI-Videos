@@ -28,7 +28,6 @@ xui.Class('App', 'xui.Module',{
                 .setWidth("54.166666666666664em")
                 .setHeight("47.5em")
                 .setCaption("Video")
-                .setMinBtn(false)
             );
             
             host.xui_ui_dialog9.append(
@@ -39,84 +38,81 @@ xui.Class('App', 'xui.Module',{
                 .setLeft("11.666666666666666em")
                 .setTop("0.8333333333333334em")
                 .setWidth("53.333333333333336em")
-                .setHeight("35em")
+                .setHeight("35.04761904761905em")
                 .setAutoplay(true)
                 .onMediaEvent([
                     {
-                        "desc":"Action 1",
-                        "type":"control",
-                        "target":"xui_ui_video2",
-                        "args":[ ],
-                        "method":"busy",
-                        "conditions":[
+                        "desc" : "Action 1",
+                        "type" : "control",
+                        "target" : "xui_ui_video2",
+                        "args" : [ ],
+                        "method" : "busy",
+                        "conditions" : [
                             {
-                                "left":"{args[1].type}",
-                                "symbol":"=",
-                                "right":"loadstart"
+                                "left" : "{args[1].type}",
+                                "symbol" : "=",
+                                "right" : "loadstart"
                             }
                         ]
                     },
                     {
-                        "desc":"Action 2",
-                        "type":"control",
-                        "target":"xui_ui_video2",
-                        "args":[ ],
-                        "method":"free",
-                        "conditions":[
+                        "desc" : "Action 2",
+                        "type" : "control",
+                        "target" : "xui_ui_video2",
+                        "args" : [ ],
+                        "method" : "free",
+                        "conditions" : [
                             {
-                                "left":"{args[1].type}",
-                                "symbol":"=",
-                                "right":"loadeddata"
+                                "left" : "{args[1].type}",
+                                "symbol" : "=",
+                                "right" : "loadeddata"
                             }
                         ]
                     },
                     {
-                        "desc":"Action 3",
-                        "type":"control",
-                        "target":"xui_ui_video2",
-                        "args":[ ],
-                        "method":"free",
-                        "conditions":[
+                        "desc" : "Action 3",
+                        "type" : "control",
+                        "target" : "xui_ui_video2",
+                        "args" : [ ],
+                        "method" : "free",
+                        "conditions" : [
                             {
-                                "left":"{args[1].type}",
-                                "symbol":"=",
-                                "right":"canplay"
+                                "left" : "{args[1].type}",
+                                "symbol" : "=",
+                                "right" : "canplay"
                             }
                         ]
                     }
                 ])
-                );
+            );
             
             host.xui_ui_dialog9.append(
                 xui.create("xui.UI.Gallery")
                 .setHost(host,"xui_ui_gallery7")
-                .setDirtyMark(false)
-                .setImgWidth('auto')
-                .setImgHeight('auto')
                 .setItems([
                     {
-                        "id":"ad",
-                        "caption":"",
-                        "comment":"A commercial piece",
-                        "image":"{/}img/ad.png"
+                        "id" : "ad",
+                        "caption" : "",
+                        "comment" : "A commercial piece",
+                        "image" : "{/}img/ad.png"
                     },
                     {
-                        "id":"boy",
-                        "caption":"",
-                        "comment":"Cute Boy",
-                        "image":"{/}img/boy.png"
+                        "id" : "boy",
+                        "caption" : "",
+                        "comment" : "Cute Boy",
+                        "image" : "{/}img/boy.png"
                     },
                     {
-                        "id":"egg",
-                        "caption":"",
-                        "comment":"Hen eggs",
-                        "image":"{/}img/egg.png"
+                        "id" : "egg",
+                        "caption" : "",
+                        "comment" : "Hen eggs",
+                        "image" : "{/}img/egg.png"
                     },
                     {
-                        "id":"cartoon",
-                        "caption":"",
-                        "comment":"Cartoon Clip",
-                        "image":"{/}img/cartoon.png"
+                        "id" : "cartoon",
+                        "caption" : "",
+                        "comment" : "Cartoon Clip",
+                        "image" : "{/}img/cartoon.png"
                     }
                 ])
                 .setDock("bottom")
@@ -125,31 +121,33 @@ xui.Class('App', 'xui.Module',{
                 .setHeight("9em")
                 .setItemMargin(4)
                 .setItemPadding(4)
+                .setImgWidth("auto")
+                .setImgHeight("auto")
                 .setColumns(4)
                 .setValue("a")
                 .onItemSelected([
                     {
-                        "desc":"Action 1",
-                        "type":"control",
-                        "target":"xui_ui_video2",
-                        "args":[
+                        "desc" : "Action 1",
+                        "type" : "control",
+                        "target" : "xui_ui_video2",
+                        "args" : [
                             "{page.xui_ui_video2.setSrc()}",
                             undefined,
                             undefined,
                             "{/}mp4/{args[1].id}.mp4",
                             "{true}"
                         ],
-                        "method":"setSrc",
-                        "redirection":"other:callback:call",
-                        "event":2
+                        "method" : "setSrc",
+                        "redirection" : "other:callback:call",
+                        "event" : 2
                     }
                 ])
                 .setCustomStyle({
-                    "ITEMS":{
-                        "overflow":"overflow-x:auto;overflow-y:hidden"
+                    "ITEMS" : {
+                        "overflow" : "overflow-x:auto;overflow-y:hidden"
                     }
                 })
-                );
+            );
             
             return children;
             // ]]Code created by CrossUI RAD Studio
